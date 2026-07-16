@@ -12,35 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('news_cache', function (Blueprint $table) {
-
             $table->id();
-
             $table->foreignId('country_id')->nullable()->constrained()->nullOnDelete();
-
             $table->string('title');
-
             $table->longText('description')->nullable();
-
             $table->string('source')->nullable();
-
             $table->string('url')->nullable();
-
             $table->string('image')->nullable();
-
             $table->dateTime('published_at')->nullable();
-
             $table->string('sentiment')->nullable();
-
             $table->timestamps();
-
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
-        Schema::dropIfExists('news_caches');
+        Schema::dropIfExists('news_cache');
     }
 };
